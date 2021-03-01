@@ -9,24 +9,30 @@ const pokeApi = 'https://pokeapi.co/api/v2/pokemon/'
 
 export function Pokemons() {
   const [pokemons, setPokemons] = useState([]);
+  const [nextPage, setNextPage] = useState('');
+  const [previousPage, setPreviousPage] = useState('');
 
-  useEffect(() => {
-    fetch(pokeApi)
+  const fetchPokemons = (api) => {
+    fetch(api)
     .then(r => r.json())
-    // .then(pokemons => console.log(pokemons.results))
-    // .then(data => console.log(data.results))
     .then(data => {
       const pokemonData = data.results.map(item => item.name);
-      // console.log(pokemonData);
-      setPokemons(pokemonData)
-      console.log(data.next)
+      setPokemons(pokemonData);
+      setPreviousPage(data.previous);
+      setNextPage(data.next);
     })
+  };
+
+  useEffect(() => {
+    fetchPokemons(pokeApi)
   }, []);
 
+  const handleNextButton = () => fetchPokemons(nextPage)
+  const handlePreviousButton = () => fetchPokemons(previousPage)
 
-  
+
+
   return (
-
     <Page>
       <Title style={{marginBottom: '20px'}}>Pokemons list</Title>
       <ol className="poke-font text-white grid grid-cols-2 grid-flow-row-dense gap-1">
@@ -41,16 +47,21 @@ export function Pokemons() {
           </li>
         ))}
       </ol>
-        Here will be list of pokemons from pokeapi
-      <p className="text-white py-6 text-center"> 
-      </p>
+      <div className='navButtons'>
+      <Button style={{marginTop: '20px', backgroundColor: 'white'}} onClick={handlePreviousButton} >PREV</Button>
+      <Button style={{marginTop: '20px', backgroundColor: 'white'}} onClick={handleNextButton} >NEXT</Button>
+      </div>
+
+
+
+
+
+
+
+
+
       <ol className="text-white list-decimal">
         <p className="font-bold">What you need to do</p>
-        <li>
-          Call pokeapi inside useEffect (remember to not cause infinite loop
-          because you'll break pokeapi!) and save the response in state
-          (useState)
-        </li>
         <li>
           Display list of pokemons (pokeapi uses pagination so keep that in
           mind) like example below
@@ -88,5 +99,3 @@ export function Pokemons() {
     </Page>
   );
 }
-
-{/* <Button style={{marginTop: '20px', backgroundColor: 'white'}} onClick={handleNext}>NEXT</Button>*/}

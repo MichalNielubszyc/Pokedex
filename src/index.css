@@ -16,3 +16,8 @@ code {
   font-family: "pokemon-font";
   src: local("pokemon-font"), url(./fonts/pokemon-font.ttf) format("truetype");
 }
+
+.navButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
