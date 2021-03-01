@@ -38,6 +38,12 @@ function App() {
                 </li>
               </ul>
             </nav>
+            <Switch>
+              <Route exact path='/'><Home /></Route>
+              <Route path='/pokemons'><Pokemons /></Route>
+              <Route path='/favourites'><Favourites /></Route>
+
+            </Switch>
           </div>
         </Router>
       </div>
