@@ -1,13 +1,48 @@
+import { useState, useEffect } from 'react';
+
 import { Page } from "../../components/page";
 import { Title } from "../../components/title";
-import { pokeApiResponse } from "../../utils/sampleResponse";
+
+import { Button } from "@material-ui/core";
+
+const pokeApi = 'https://pokeapi.co/api/v2/pokemon/'
 
 export function Pokemons() {
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(() => {
+    fetch(pokeApi)
+    .then(r => r.json())
+    // .then(pokemons => console.log(pokemons.results))
+    // .then(data => console.log(data.results))
+    .then(data => {
+      const pokemonData = data.results.map(item => item.name);
+      // console.log(pokemonData);
+      setPokemons(pokemonData)
+      console.log(data.next)
+    })
+  }, []);
+
+
+  
   return (
+
     <Page>
-      <Title>Pokemons list</Title>
-      <p className="text-white py-6 text-center">
+      <Title style={{marginBottom: '20px'}}>Pokemons list</Title>
+      <ol className="poke-font text-white grid grid-cols-2 grid-flow-row-dense gap-1">
+        {pokemons.map((pokemon, index) => (
+          <li
+            key={pokemon - index}
+            className={`hover:bg-red-700 cursor-pointer ${
+              index < 10 ? "col-start-1" : "col-start-2"
+            }`}
+          >
+            #{index + 1} - {pokemon}
+          </li>
+        ))}
+      </ol>
         Here will be list of pokemons from pokeapi
+      <p className="text-white py-6 text-center"> 
       </p>
       <ol className="text-white list-decimal">
         <p className="font-bold">What you need to do</p>
@@ -50,18 +85,8 @@ export function Pokemons() {
       <p className="text-white py-2">
         Example of what I want to see here is something like this
       </p>
-      <ol className="poke-font text-white grid grid-cols-2 grid-flow-row-dense gap-1">
-        {pokeApiResponse.map((pokemon, index) => (
-          <li
-            key={pokemon - index}
-            className={`hover:bg-red-700 cursor-pointer ${
-              index < 10 ? "col-start-1" : "col-start-2"
-            }`}
-          >
-            #{index + 1} - {pokemon.name}
-          </li>
-        ))}
-      </ol>
     </Page>
   );
 }
+
+{/* <Button style={{marginTop: '20px', backgroundColor: 'white'}} onClick={handleNext}>NEXT</Button>*/}
