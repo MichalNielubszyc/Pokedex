@@ -65,7 +65,7 @@ export function Pokemons() {
                   index < 10 ? "col-start-1" : "col-start-2"
                 }`}
               >
-                  <Link to={`/pokemon-details${pokemon.url.slice(-3)}`}>#{pokemon.url.slice(-3).slice(0,-1)} - {pokemon.name}</Link>
+                  <Link to={`/pokemon-details/${pokemon.url.slice(34).slice(0,-1)}/`}>#{pokemon.url.slice(34).slice(0,-1)} - {pokemon.name}</Link>
               </li>
             ))}
           </ol>
@@ -106,13 +106,13 @@ export function Pokemons() {
               <p>Loaded</p>
               <p>Error</p>
             </li> */}
-            <li>
+            {/* <li>
               Create pokemon profile page, so when I click on selected pokemon I
               go to the specific page where I can see more details about pokemon
               (pokemonId, name, types and avatar). Refer to Favourites, you'll
               see an example. Remember about react-router you have to create new
               route for this and create separate component and separate Route.
-            </li>
+            </li> */}
             <li>
               In detailed view I want to have{" "}
               <span className="font-bold">ADD TO FAVOURITE </span>button which
