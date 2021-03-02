@@ -18,10 +18,14 @@ const examplePokemon = {
   ],
 };
 
-export const PokemonDetails = () => {
+export const PokemonDetails = (props) => {
+
+    const pokemonId = props.match.params.pokeid;
+    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`
+
   return (
     <Page>
-      <Title>Here will be pokemon name</Title>
+      <Title>{pokemonUrl}</Title>
       <div className="pokemonDetails">
         <PokemonProfile
           name={examplePokemon.name}

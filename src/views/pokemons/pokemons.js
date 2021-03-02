@@ -20,7 +20,7 @@ export function Pokemons() {
     fetch(api)
       .then((r) => r.json())
       .then((data) => {
-        const pokemonData = data.results.map((item) => item.name);
+        const pokemonData = data.results;
         setPokemons(pokemonData);
         setPreviousPage(data.previous);
         setNextPage(data.next);
@@ -41,6 +41,7 @@ export function Pokemons() {
     if (!previousPage) return;
     fetchPokemons(previousPage);
   };
+
   return (
     <Page>
       <Title style={{ marginBottom: "20px" }}>Pokemons list</Title>
@@ -64,7 +65,7 @@ export function Pokemons() {
                   index < 10 ? "col-start-1" : "col-start-2"
                 }`}
               >
-                  <Link to="/pokemon-details">#{index + 1} - {pokemon}</Link>
+                  <Link to={`/pokemon-details${pokemon.url.slice(-3)}`}>#{pokemon.url.slice(-3).slice(0,-1)} - {pokemon.name}</Link>
               </li>
             ))}
           </ol>

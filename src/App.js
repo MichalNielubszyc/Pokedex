@@ -44,7 +44,7 @@ function App() {
               <Route exact path='/'><Home /></Route>
               <Route path='/pokemons'><Pokemons /></Route>
               <Route path='/favourites'><Favourites /></Route>
-              <Route path='/pokemon-details'><PokemonDetails /></Route>
+              <Route path='/pokemon-details/:pokeid' component={PokemonDetails}></Route>
             </Switch>
           </div>
         </Router>
