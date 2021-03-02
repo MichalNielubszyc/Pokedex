@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import { Favourites } from "./views/favourites/favourites";
 import { Home } from "./views/home/home";
+import { PokemonDetails } from "./views/pokemons/PokemonDetails";
 import { Pokemons } from "./views/pokemons/pokemons";
+import { Button } from "@material-ui/core";
 
 
 /* Routing is not complete, please add missing part of the router to make it work properly
@@ -42,7 +44,7 @@ function App() {
               <Route exact path='/'><Home /></Route>
               <Route path='/pokemons'><Pokemons /></Route>
               <Route path='/favourites'><Favourites /></Route>
-
+              <Route path='/pokemon-details'><PokemonDetails /></Route>
             </Switch>
           </div>
         </Router>

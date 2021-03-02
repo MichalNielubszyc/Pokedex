@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { Page } from "../../components/page";
 import { Title } from "../../components/title";
@@ -57,13 +58,13 @@ export function Pokemons() {
         <>
           <ol className="poke-font text-white grid grid-cols-2 grid-flow-row-dense gap-1">
             {pokemons.map((pokemon, index) => (
-              <li
+              <li 
                 key={pokemon - index}
                 className={`hover:bg-red-700 cursor-pointer ${
                   index < 10 ? "col-start-1" : "col-start-2"
                 }`}
               >
-                #{index + 1} - {pokemon}
+                  <Link to="/pokemon-details">#{index + 1} - {pokemon}</Link>
               </li>
             ))}
           </ol>
