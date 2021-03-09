@@ -52,36 +52,6 @@ export const Favourites = () => {
           avatar={examplePokemon.avatar}
           number={examplePokemon.id}
         />
-        <PokemonProfile
-          name={examplePokemon.name}
-          types={examplePokemon.types}
-          avatar={examplePokemon.avatar}
-          number={examplePokemon.id}
-        />
-        <PokemonProfile
-          name={examplePokemon.name}
-          types={examplePokemon.types}
-          avatar={examplePokemon.avatar}
-          number={examplePokemon.id}
-        />
-        <PokemonProfile
-          name={examplePokemon.name}
-          types={examplePokemon.types}
-          avatar={examplePokemon.avatar}
-          number={examplePokemon.id}
-        />
-        <PokemonProfile
-          name={examplePokemon.name}
-          types={examplePokemon.types}
-          avatar={examplePokemon.avatar}
-          number={examplePokemon.id}
-        />
-        <PokemonProfile
-          name={examplePokemon.name}
-          types={examplePokemon.types}
-          avatar={examplePokemon.avatar}
-          number={examplePokemon.id}
-        />
       </div>
     </Page>
   );
