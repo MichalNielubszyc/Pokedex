@@ -4,7 +4,7 @@ export const PokemonProfile = ({ number, name, types, avatar, exp, height, weigh
     return (
       <figure
         className="max-w-xs bg-gray-100 rounded-xl p-4"
-        style={{ padding: "0 0 10px" }}
+        style={{ padding: "0 0 10px", marginBottom: "20px" }}
       >
         <img
           className="w-32 h-32 rounded-full mx-auto"
