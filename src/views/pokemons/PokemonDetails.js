@@ -24,6 +24,9 @@ export const PokemonDetails = (props) => {
     if (favouritePokemonsIds.includes(pokemonDetails.id)){
       return
     }
+    if (favouritePokemons.length === 6){
+      favouritePokemons.shift();
+    }
       setFavouritePokemons([...favouritePokemons, pokemonDetails]);
       console.log(favouritePokemons);
   };

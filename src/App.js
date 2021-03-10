@@ -24,7 +24,7 @@ If you get stuck here refer to first pages of react-router documentation. I lite
 function App() {
   return (
     <main className="App h-screen bg-red-100">
-      <div className="w-6/12 pt-4 mx-auto">
+      <div className="w-8/12 pt-4 mx-auto">
         <Router>
           <div>
             <nav>

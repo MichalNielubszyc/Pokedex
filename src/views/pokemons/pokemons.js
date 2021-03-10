@@ -84,7 +84,7 @@ export function Pokemons() {
             </Button>
           </div>
 
-          <ol className="text-white list-decimal">
+          {/* <ol className="text-white list-decimal">
             <p className="font-bold">What you need to do</p>
             {/* <li>
               Call pokeapi inside useEffect (remember to not cause infinite loop
@@ -113,7 +113,7 @@ export function Pokemons() {
               see an example. Remember about react-router you have to create new
               route for this and create separate component and separate Route.
             </li> */}
-            <li>
+            {/* <li>
               In detailed view I want to have{" "}
               <span className="font-bold">ADD TO FAVOURITE </span>button which
               will save selected pokemon to{" "}
@@ -121,11 +121,11 @@ export function Pokemons() {
               display it in Favourite component. [Extra] Maximum of 6, meaning
               if I add 7th pokemon the first one gets removed from the
               localStorage
-            </li>
-          </ol>
-          <p className="text-white py-2">
+            </li> 
+          </ol>  */}
+          {/* <p className="text-white py-2">
             Example of what I want to see here is something like this
-          </p>
+          </p> */}
         </>
       )}
     </Page>
