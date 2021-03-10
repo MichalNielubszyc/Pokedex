@@ -28,7 +28,6 @@ export const PokemonDetails = (props) => {
       favouritePokemons.shift();
     }
       setFavouritePokemons([...favouritePokemons, pokemonDetails]);
-      console.log(favouritePokemons);
   };
 
   const fetchPokemons = (api) => {

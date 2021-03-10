@@ -3,7 +3,6 @@ import { Button } from "@material-ui/core";
 import { Page } from "../../components/page";
 import { Title } from "../../components/title";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { useEffect } from "react";
 
 import { PokemonProfile } from "../pokemons/PokemonProfile";
 
@@ -15,11 +14,11 @@ export const Favourites = () => {
 
   const removeFromFavourites = (item) => {
       const pokemonToBeRemovedIndex = favouritePokemons.findIndex((pokemon) => pokemon.id === item.id);
-      favouritePokemons.splice(pokemonToBeRemovedIndex,(pokemonToBeRemovedIndex+1));
-      console.log(favouritePokemons)
-      // favourites = favouritePokemons
-      // setFavouritePokemons(favouritePokemons)
-      // localStorage.setItem(favouritePokemons, JSON.stringify(favouritePokemons));
+      const favouritePokemons2 = favouritePokemons;
+      const removedPokemon = favouritePokemons2.splice(pokemonToBeRemovedIndex,(pokemonToBeRemovedIndex+1));
+      console.log(removedPokemon)
+      console.log(favouritePokemons2)
+      setFavouritePokemons(favouritePokemons2);
   }
 
   return (
@@ -47,12 +46,12 @@ export const Favourites = () => {
                 weight={pokemon.weight}
                 abilities={pokemon.abilities}
               />
-              {/* <Button
+              <Button
               style={{ marginTop: "20px", backgroundColor: "white" }}
               onClick={() => {removeFromFavourites(pokemon)}}
             >
               remove from favourites
-            </Button> */}
+            </Button>
             </div>
           ))}
         </div>
